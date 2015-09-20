@@ -1,5 +1,5 @@
 module WordNet
 
-# package code goes here
+include("pointer.jl")
 
-end # module
+end
