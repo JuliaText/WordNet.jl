@@ -6,7 +6,7 @@ immutable Lemma
     word::String
     pos::Char
     tagsense_count::Int
-    synset_offsets::Vector{Char}
+    synset_offsets::Vector{Int}
     id::Int
     pointer_syms::Vector{String}
 end
@@ -28,8 +28,8 @@ function Lemma(lexicon_line, id)
     Lemma(word, pos, tagsense_count, synset_offsets, id, pointer_syms)
 end
 
-synsets(lemma::Lemma) = map(synset_offsets) do offset
-    SynSet(lemma.pos, offset)
+synsets(db::DB, lemma::Lemma) = map(lemma.synset_offsets) do offset
+    Synset(db, lemma.pos, offset)
 end
 
 Base.show(lemma::Lemma) = "$(lemma.word),$(lemma.pos)"
