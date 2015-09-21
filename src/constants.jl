@@ -1,4 +1,4 @@
-NOUN_POINTERS = Dict{String, String}(
+NOUN_POINTERS = @compat Dict{String, String}(
     "-c" => "Member of this domain - TOPIC",
     "+" => "Derivationally related form",
     "%p" => "Part meronym",
@@ -19,7 +19,7 @@ NOUN_POINTERS = Dict{String, String}(
     "@i" => "Instance Hypernym",
     "#m" => "Member holonym"
 )
-VERB_POINTERS = Dict{String, String}(
+VERB_POINTERS = @compat Dict{String, String}(
     "+" => "Derivationally related form",
     "@" => "Hypernym",
     ";r" => "Domain of synset - REGION",
@@ -32,7 +32,7 @@ VERB_POINTERS = Dict{String, String}(
     "*" => "Entailment"
 )
 
-ADJECTIVE_POINTERS = Dict{String, String}(
+ADJECTIVE_POINTERS = @compat Dict{String, String}(
     ";r" => "Domain of synset - REGION",
     "!" => "Antonym",
     "\\" => "Pertainym (pertains to noun)",
@@ -42,7 +42,7 @@ ADJECTIVE_POINTERS = Dict{String, String}(
     ";c" => "Domain of synset - TOPIC"
 )
 
-ADVERB_POINTERS = Dict{String, String}(
+ADVERB_POINTERS = @compat Dict{String, String}(
     ";r" => "Domain of synset - REGION",
     "!" => "Antonym",
     ";u" => "Domain of synset - USAGE",

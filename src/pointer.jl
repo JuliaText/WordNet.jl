@@ -2,7 +2,7 @@ export Pointer, is_semantic
 
 immutable Pointer
     sym::String
-    offset::UInt
+    offset::UInt32
     pos::Char
     source::String
     target::String

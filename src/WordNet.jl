@@ -1,5 +1,7 @@
 module WordNet
 
+using Compat
+
 include("pointer.jl")
 include("db.jl")
 include("lemma.jl")

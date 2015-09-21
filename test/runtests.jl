@@ -1,4 +1,5 @@
 using WordNet
+using Compat
 using FactCheck
 
 include("test_pointer.jl")

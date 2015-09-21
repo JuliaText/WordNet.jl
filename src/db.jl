@@ -12,6 +12,6 @@ function path_to_index_file(db::DB, pos)
     joinpath(db.path, "dict", "index.$(SYNSET_TYPES[pos])")
 end
 
-SYNSET_TYPES = Dict{Char, String}(
+SYNSET_TYPES = @compat Dict{Char, String}(
     'n' => "noun", 'v' => "verb", 'a' => "adj", 'r' => "adv"
 )
