@@ -28,6 +28,11 @@ facts("Synset") do
     context("word_count") do 
         @fact word_count(ss) --> 1
     end
+
+    context("show") do 
+        expected = "(n) fruit (the ripened reproductive body of a seed plant)"
+        @fact show(ss) --> expected
+    end
 end
 #=
 describe WordNet::Synset do

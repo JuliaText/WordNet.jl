@@ -83,6 +83,6 @@ function expanded_hypernym(synset::Synset)
 end
 
 function Base.show(synset::Synset)
-    ws = join(map(word -> replace(word, "_", " "), words(synset)), " ,")
-    "($(synset.synset_type) $ws ($(synset.gloss))"
+    ws = join(map(word -> replace(word, "_", " "), words(synset)), ", ")
+    "($(synset.synset_type)) $ws ($(synset.gloss))"
 end
