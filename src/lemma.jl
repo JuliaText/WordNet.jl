@@ -32,4 +32,4 @@ synsets(db::DB, lemma::Lemma) = map(lemma.synset_offsets) do offset
     Synset(db, lemma.pos, offset)
 end
 
-Base.show(lemma::Lemma) = "$(lemma.word),$(lemma.pos)"
+Base.show(lemma::Lemma) = "$(lemma.word).$(lemma.pos)"
