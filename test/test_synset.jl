@@ -1,5 +1,32 @@
+const synset_test_line = string(
+    "13134947 20 n 01 fruit 0 037 @ 11675842 n 0000 + 02397119 a 0101 + 101",
+    "13997 n 0101 + 13135692 n 0101 + 01652731 v 0101 + 01652895 v 0101 + 0",
+    "0506672 v 0101 + 00056188 v 0101 ~ 07705931 n 0000 ~ 11636835 n 0000 ~",
+    " 11700279 n 0000 ~ 12036067 n 0000 ~ 12158031 n 0000 ~ 12162758 n 0000",
+    " ~ 12193334 n 0000 ~ 12267677 n 0000 ~ 12301445 n 0000 ~ 12620546 n 00",
+    "00 ~ 12642090 n 0000 ~ 12644283 n 0000 ~ 12647787 n 0000 ~ 12650805 n ",
+    "0000 ~ 12658481 n 0000 ~ 12737251 n 0000 ~ 13133613 n 0000 ~ 13135692 ",
+    "n 0000 ~ 13135832 n 0000 ~ 13137409 n 0000 ~ 13137672 n 0000 ~ 1313830",
+    "8 n 0000 ~ 13138842 n 0000 ~ 13139055 n 0000 ~ 13139482 n 0000 ~ 13140",
+    "367 n 0000 ~ 13141415 n 0000 ~ 13150378 n 0000 ~ 13150592 n 0000 | the",
+    " ripened reproductive body of a seed plant"   
+)
+
 facts("Synset") do 
-    context("get synsets for a lemma") do 
+    ss = Synset(synset_test_line, 'n', 13134947)
+
+    context("constructor") do
+        @fact ss.synset_type --> 'n'
+        @fact ss.gloss --> "the ripened reproductive body of a seed plant"
+        @fact collect(words(ss)) --> ["fruit"] 
+    end
+
+    context("words") do 
+        @fact collect(words(ss)) --> ["fruit"] 
+    end
+
+    context("word_count") do 
+        @fact word_count(ss) --> 1
     end
 end
 #=

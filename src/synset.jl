@@ -1,3 +1,6 @@
+export Synset, word_count, words, relation
+export antonym, hypernym, hypernyms, expanded_hypernym
+
 immutable Synset
     synset_offset::Int
     lex_filenum::Int
@@ -9,11 +12,8 @@ immutable Synset
     gloss::String
 end
 
-function Synset(db::DB, pos::Char, offset)
-    data_line = open(path_to_data_file(db, pos)) do f
-        seek(f, offset)
-        strip(readline(f))
-    end
+function Synset(line::String, pos::Char, offset)
+    data_line = strip(line)
     
     dl_parts = split(data_line, " | ")
     info_line = dl_parts[1]
@@ -60,7 +60,7 @@ words(synset::Synset) = keys(synset.word_counts)
 
 relation(synset::Synset, pointer_sym) = map(
     ptr -> Synset(synset.synset_type, ptr.offset),
-    filter(ptr -> ptr.sym== pointer_sym, synset.pointers)
+    filter(ptr -> ptr.sym == pointer_sym, synset.pointers)
 )
 
 antonym(synset::Synset)  = relation(synset, ANTONYM)
@@ -75,14 +75,14 @@ function expanded_hypernym(synset::Synset)
     offsets = Vector{Int}()
     while !isempty(parent)
         parent.pos_offset ∈ offsets && break
-        push!(hypernyms, Synset.new(synset.pos, offset))
+        push!(hypernyms, Synset(synset.pos, offset))
         parent = parent.parent
     end
 
     hypernyms
 end
 
-function show(synset::Synset)
+function Base.show(synset::Synset)
     ws = join(map(word -> replace(word, "_", " "), words(synset)), " ,")
     "($(synset.synset_type) $ws ($(synset.gloss))"
 end
