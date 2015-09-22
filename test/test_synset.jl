@@ -22,6 +22,12 @@ const synset_test_line_2 = string(
     "3 n 0000 ~ 00076393 n 0000 ~ 00076563 n 0000 | an embarrassing mistake"
 )
 
+const synset_test_line_3 = string(
+    "10951697 18 n 03 Edward a Edward_VIII 0 Duke_of_Windsor 0 002 @i 10233",
+    "445 n 0000 #m 08159740 n 0000 | King of England and Ireland in 1936; h",
+    "is marriage to Wallis Warfield Simpson created a constitutional crisis"
+)
+
 facts("Synset") do 
     ss = Synset(synset_test_line, 'n')
 
@@ -34,6 +40,10 @@ facts("Synset") do
     context("parses n_words from a hex string") do
         hex_ss = Synset(synset_test_line_2, 'n') 
         @fact hex_ss.gloss --> "an embarrassing mistake"
+    end
+
+    context("parses the lex_id as a hex string") do 
+        hex_ss = Synset(synset_test_line_3, 'n') 
     end
 
     context("words") do 

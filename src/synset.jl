@@ -26,7 +26,7 @@ function Synset(raw_line::String, pos::Char)
     word_counts = Dict{String, Int}()
     for _ in 1:n_words
         k = shift!(line)
-        word_counts[k] = parse(Int, shift!(line))
+        word_counts[k] = parse_int_hex(shift!(line))
     end
 
     n_pointers = parse(Int, shift!(line))
