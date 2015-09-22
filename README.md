@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/jbn/WordNet.jl.svg?branch=master)](https://travis-ci.org/jbn/WordNet.jl)
 [![Coverage Status](https://coveralls.io/repos/jbn/WordNet.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/jbn/WordNet.jl?branch=master)
+[![Build status](https://ci.appveyor.com/api/projects/status/bpqbdf24thkp6ytw/branch/master?svg=true)](https://ci.appveyor.com/project/jbn/wordnet-jl/branch/master)
 
 A Julia package for using Princeton's [WordNet](https://wordnet.princeton.edu/)®, heavily inspired by  
  [Douches](https://github.com/doches)' [rwordnet](https://github.com/doches/rwordnet).
