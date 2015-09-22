@@ -1,5 +1,5 @@
 export Synset, word_count, words, relation
-export antonym, hypernym, hypernyms, expanded_hypernym
+export antonym, hyponym, hypernym, hypernyms, expanded_hypernym
 
 immutable Synset
     offset::Int
@@ -54,30 +54,6 @@ end
 
 word_count(synset::Synset) = length(synset.word_counts)
 words(synset::Synset) = keys(synset.word_counts)
-
-relation(synset::Synset, pointer_sym) = map(
-    ptr -> Synset(synset.synset_type, ptr.offset),
-    filter(ptr -> ptr.sym == pointer_sym, synset.pointers)
-)
-
-antonym(synset::Synset)  = relation(synset, ANTONYM)
-hypernym(synset::Synset) = relation(synset, HYPERNYM)[1]
-hyponym(synset::Synset)  = relation(synset, HYPONYM)
-
-function expanded_hypernym(synset::Synset)
-    parent = hypernym(synset)
-    hypernyms = Vector{Synset}()
-    isempty(parent) && return hypernyms
-
-    offsets = Vector{Int}()
-    while !isempty(parent)
-        parent.pos_offset ∈ offsets && break
-        push!(hypernyms, Synset(synset.pos, offset))
-        parent = parent.parent
-    end
-
-    hypernyms
-end
 
 function Base.show(io::IO, synset::Synset)
     ws = join(map(word -> replace(word, "_", " "), words(synset)), ", ")

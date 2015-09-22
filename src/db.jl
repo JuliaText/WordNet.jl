@@ -64,5 +64,29 @@ SYNSET_TYPES = @compat Dict{Char, String}(
 )
 
 synsets(db::DB, lemma::Lemma) = map(lemma.synset_offsets) do offset
-    Synset(db, lemma.pos, offset)
+    db.synsets[lemma.pos][offset]
+end
+
+antonym(db::DB, synset::Synset)  = relation(db, synset, ANTONYM)
+hypernym(db::DB, synset::Synset) = relation(db, synset, HYPERNYM)[1]
+hyponym(db::DB, synset::Synset)  = relation(db, synset, HYPONYM)
+
+relation(db::DB, synset::Synset, pointer_sym) = map(
+    ptr -> db.synsets[synset.synset_type][ptr.offset],
+    filter(ptr -> ptr.sym == pointer_sym, synset.pointers)
+)
+
+function expanded_hypernym(db::DB, synset::Synset)
+    parent = hypernym(db, synset)
+    hypernyms = Vector{Synset}()
+    isempty(parent) && return hypernyms
+
+    offsets = Vector{Int}()
+    while !isempty(parent)
+        parent.pos_offset ∈ offsets && break
+        push!(hypernyms, db.synsets[synset.pos][offset])
+        parent = parent.parent
+    end
+
+    hypernyms
 end
