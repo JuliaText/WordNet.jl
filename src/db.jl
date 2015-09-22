@@ -11,6 +11,12 @@ end
 
 Base.show(io::IO, db::DB) = print(io, "Wordnet.DB")
 
+function Base.getindex(db::DB, pos::Char, word::String) 
+    db.lemmas[pos][lowercase(word)]
+end
+
+Base.getindex(db::DB, word::String, pos::Char) = db[pos, word]
+
 function load_lemmas(base_dir)
     lemmas = Dict{Char, Dict{String, Lemma}}()
 
