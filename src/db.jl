@@ -74,7 +74,7 @@ synsets(db::DB, lemma::Lemma) = map(lemma.synset_offsets) do offset
 end
 
 antonym(db::DB, synset::Synset)  = relation(db, synset, ANTONYM)
-hypernym(db::DB, synset::Synset) = relation(db, synset, HYPERNYM)[1]
+hypernym(db::DB, synset::Synset) = get(relation(db, synset, HYPERNYM), 1, ROOT)
 hyponym(db::DB, synset::Synset)  = relation(db, synset, HYPONYM)
 
 relation(db::DB, synset::Synset, pointer_sym) = map(
@@ -83,16 +83,13 @@ relation(db::DB, synset::Synset, pointer_sym) = map(
 )
 
 function expanded_hypernym(db::DB, synset::Synset)
-    parent = hypernym(db, synset)
     hypernyms = Vector{Synset}()
-    isempty(parent) && return hypernyms
-
-    offsets = Vector{Int}()
-    while !isempty(parent)
-        parent.pos_offset ∈ offsets && break
-        push!(hypernyms, db.synsets[synset.pos][offset])
-        parent = parent.parent
+    
+    node = hypernym(db, synset)
+    while !is_root(node)
+        push!(hypernyms, node)
+        node = hypernym(db, node)
     end
-
+    
     hypernyms
 end
