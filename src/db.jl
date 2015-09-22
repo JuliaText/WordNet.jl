@@ -9,7 +9,7 @@ function DB(base_dir::String)
     DB(load_lemmas(base_dir), load_synsets(base_dir))
 end
 
-Base.show(io::IO, db::DB) = print(io, "Wordnet.DB")
+Base.show(io::IO, db::DB) = print(io, "WordNet.DB")
 
 function Base.getindex(db::DB, pos::Char, word::String) 
     db.lemmas[pos][lowercase(word)]
