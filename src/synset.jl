@@ -2,11 +2,10 @@ export Synset, word_count, words, relation
 export antonym, hypernym, hypernyms, expanded_hypernym
 
 immutable Synset
-    synset_offset::Int
+    offset::Int
     lex_filenum::Int
     word_counts::Dict{String, Int}
     synset_type::Char
-    pos_offset::Int
     pos::Char
     pointers::Vector{Pointer}
     gloss::String
@@ -14,12 +13,12 @@ end
 
 parse_int_hex(s) = parse(Int, string("0x", s))
 
-function Synset(raw_line::String, pos::Char, offset)
+function Synset(raw_line::String, pos::Char)
     dl_parts = split(strip(raw_line), " | ")
     line = split(dl_parts[1], SPACE)
     gloss = join(dl_parts[2:end], " | ")
     
-    synset_offset = parse(Int, shift!(line))
+    offset = parse(Int, shift!(line))
     lex_filenum = parse(Int, shift!(line))
     synset_type = shift!(line)[1]
 
@@ -42,11 +41,10 @@ function Synset(raw_line::String, pos::Char, offset)
     ]
 
     Synset(
-        synset_offset,
+        offset,
         lex_filenum,
         word_counts,
         synset_type,
-        offset,
         pos,
         pointers,
         gloss

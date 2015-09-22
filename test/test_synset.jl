@@ -23,7 +23,7 @@ const synset_test_line_2 = string(
 )
 
 facts("Synset") do 
-    ss = Synset(synset_test_line, 'n', 13134947)
+    ss = Synset(synset_test_line, 'n')
 
     context("constructor") do
         @fact ss.synset_type --> 'n'
@@ -32,7 +32,7 @@ facts("Synset") do
     end
 
     context("parses n_words from a hex string") do
-        hex_ss = Synset(synset_test_line_2, 'n', 13134947) 
+        hex_ss = Synset(synset_test_line_2, 'n') 
         @fact hex_ss.gloss --> "an embarrassing mistake"
     end
 
