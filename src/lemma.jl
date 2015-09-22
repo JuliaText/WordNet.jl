@@ -28,8 +28,4 @@ function Lemma(lexicon_line, id)
     Lemma(word, pos, tagsense_count, synset_offsets, id, pointer_syms)
 end
 
-synsets(db::DB, lemma::Lemma) = map(lemma.synset_offsets) do offset
-    Synset(db, lemma.pos, offset)
-end
-
-Base.show(lemma::Lemma) = "$(lemma.word).$(lemma.pos)"
+Base.show(io::IO, lemma::Lemma) = print(io, "$(lemma.word).$(lemma.pos)")

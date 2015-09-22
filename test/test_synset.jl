@@ -12,6 +12,16 @@ const synset_test_line = string(
     " ripened reproductive body of a seed plant"   
 )
 
+const synset_test_line_2 = string(
+    "00074790 04 n 0b blunder 0 blooper 0 bloomer 0 bungle 0 pratfall 0 fou",
+    "l-up 0 fuckup 0 flub 0 botch 0 boner 0 boo-boo 0 019 @ 00070965 n 0000",
+    " + 02229000 a 0901 + 02527651 v 0901 + 02527651 v 0808 + 02527651 v 07",
+    "18 + 02527651 v 0616 + 02527651 v 040d + 00013172 v 0401 + 02566227 v ",
+    "0103 ~ 00071864 n 0000 ~ 00075283 n 0000 ~ 00075471 n 0000 ~ 00075790 ",
+    "n 0000 ~ 00075912 n 0000 ~ 00076072 n 0000 ~ 00076196 n 0000 ~ 0007632",
+    "3 n 0000 ~ 00076393 n 0000 ~ 00076563 n 0000 | an embarrassing mistake"
+)
+
 facts("Synset") do 
     ss = Synset(synset_test_line, 'n', 13134947)
 
@@ -19,6 +29,11 @@ facts("Synset") do
         @fact ss.synset_type --> 'n'
         @fact ss.gloss --> "the ripened reproductive body of a seed plant"
         @fact collect(words(ss)) --> ["fruit"] 
+    end
+
+    context("parses n_words from a hex string") do
+        hex_ss = Synset(synset_test_line_2, 'n', 13134947) 
+        @fact hex_ss.gloss --> "an embarrassing mistake"
     end
 
     context("words") do 
@@ -31,7 +46,7 @@ facts("Synset") do
 
     context("show") do 
         expected = "(n) fruit (the ripened reproductive body of a seed plant)"
-        @fact show(ss) --> expected
+        @fact io_to_string(io -> show(io, ss)) --> expected
     end
 end
 #=

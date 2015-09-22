@@ -12,19 +12,18 @@ immutable Synset
     gloss::String
 end
 
-function Synset(line::String, pos::Char, offset)
-    data_line = strip(line)
-    
-    dl_parts = split(data_line, " | ")
-    info_line = dl_parts[1]
-    gloss = dl_parts[2]
-    line = split(info_line, SPACE)
+parse_int_hex(s) = parse(Int, string("0x", s))
+
+function Synset(raw_line::String, pos::Char, offset)
+    dl_parts = split(strip(raw_line), " | ")
+    line = split(dl_parts[1], SPACE)
+    gloss = join(dl_parts[2:end], " | ")
     
     synset_offset = parse(Int, shift!(line))
     lex_filenum = parse(Int, shift!(line))
     synset_type = shift!(line)[1]
 
-    n_words = parse(Int, shift!(line))
+    n_words = parse_int_hex(shift!(line))  # hex!
     word_counts = Dict{String, Int}()
     for _ in 1:n_words
         k = shift!(line)
@@ -82,7 +81,7 @@ function expanded_hypernym(synset::Synset)
     hypernyms
 end
 
-function Base.show(synset::Synset)
+function Base.show(io::IO, synset::Synset)
     ws = join(map(word -> replace(word, "_", " "), words(synset)), ", ")
-    "($(synset.synset_type)) $ws ($(synset.gloss))"
+    print(io, "($(synset.synset_type)) $ws ($(synset.gloss))")
 end
