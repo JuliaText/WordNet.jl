@@ -5,17 +5,17 @@ export is_root
 immutable Synset
     offset::Int
     lex_filenum::Int
-    word_counts::Dict{String, Int}
+    word_counts::Dict{AbstractString, Int}
     synset_type::Char
     pos::Char
     pointers::Vector{Pointer}
-    gloss::String
+    gloss::AbstractString
 end
 
 const ROOT = @compat Synset(
     -1, 
     -1, 
-    Dict{String, Int}(),
+    Dict{AbstractString, Int}(),
     '-',
     '-',
     Vector{Pointer}(),
@@ -26,7 +26,7 @@ is_root(synset::Synset) = synset.offset == -1
 
 parse_int_hex(s) = parse(Int, string("0x", s))
 
-function Synset(raw_line::String, pos::Char)
+function Synset(raw_line::AbstractString, pos::Char)
     dl_parts = split(strip(raw_line), " | ")
     line = split(dl_parts[1], SPACE)
     gloss = join(dl_parts[2:end], " | ")
@@ -36,7 +36,7 @@ function Synset(raw_line::String, pos::Char)
     synset_type = shift!(line)[1]
 
     n_words = parse_int_hex(shift!(line))  # hex!
-    word_counts = Dict{String, Int}()
+    word_counts = Dict{AbstractString, Int}()
     for _ in 1:n_words
         k = shift!(line)
         word_counts[k] = parse_int_hex(shift!(line))

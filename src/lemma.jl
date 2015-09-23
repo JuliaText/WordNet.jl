@@ -3,12 +3,12 @@ export Lemma, synsets
 const SPACE = ' '
 
 immutable Lemma
-    word::String
+    word::AbstractString
     pos::Char
     tagsense_count::Int
     synset_offsets::Vector{Int}
     id::Int
-    pointer_syms::Vector{String}
+    pointer_syms::Vector{AbstractString}
 end
 
 function Lemma(lexicon_line, id)

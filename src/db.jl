@@ -1,27 +1,27 @@
 export DB
 
 immutable DB
-    lemmas::Dict{Char, Dict{String, Lemma}}
+    lemmas::Dict{Char, Dict{AbstractString, Lemma}}
     synsets::Dict{Char, Dict{Int, Synset}}
 end
 
-function DB(base_dir::String)
+function DB(base_dir::AbstractString)
     DB(load_lemmas(base_dir), load_synsets(base_dir))
 end
 
 Base.show(io::IO, db::DB) = print(io, "WordNet.DB")
 
-function Base.getindex(db::DB, pos::Char, word::String) 
+function Base.getindex(db::DB, pos::Char, word::AbstractString) 
     db.lemmas[pos][lowercase(word)]
 end
 
-Base.getindex(db::DB, word::String, pos::Char) = db[pos, word]
+Base.getindex(db::DB, word::AbstractString, pos::Char) = db[pos, word]
 
 function load_lemmas(base_dir)
-    lemmas = Dict{Char, Dict{String, Lemma}}()
+    lemmas = Dict{Char, Dict{AbstractString, Lemma}}()
 
     for pos in ['n', 'v', 'a', 'r']
-        d = Dict{String, Lemma}()
+        d = Dict{AbstractString, Lemma}()
         
         open(path_to_index_file(base_dir, pos)) do f
             for (i, line) in enumerate(eachline(f))
@@ -65,7 +65,7 @@ function path_to_index_file(base_dir, pos)
     joinpath(base_dir, "dict", "index.$(SYNSET_TYPES[pos])")
 end
 
-SYNSET_TYPES = @compat Dict{Char, String}(
+SYNSET_TYPES = @compat Dict{Char, AbstractString}(
     'n' => "noun", 'v' => "verb", 'a' => "adj", 'r' => "adv"
 )
 

@@ -1,11 +1,11 @@
 export Pointer, is_semantic
 
 immutable Pointer
-    sym::String
+    sym::AbstractString
     offset::UInt32
     pos::Char
-    source::String
-    target::String
+    source::AbstractString
+    target::AbstractString
 end
 
 Pointer(sym, offset, pos, source) = Pointer(
