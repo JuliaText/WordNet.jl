@@ -1,4 +1,4 @@
-export Lemma, synsets
+export Lemma
 
 const SPACE = ' '
 

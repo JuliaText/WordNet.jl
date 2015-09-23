@@ -1,6 +1,6 @@
 facts("Pointer") do
     context("constructor") do 
-        pointer = Pointer("s", 123, 'v', "1234")
+        pointer = WordNet.Pointer("s", 123, 'v', "1234")
 
         @fact pointer.sym    --> "s"
         @fact pointer.offset --> 123
@@ -10,10 +10,12 @@ facts("Pointer") do
     end
 
     context("is not semantic for non-0") do 
-        @fact is_semantic(Pointer("s", 123, 'v', "1234")) --> false
+        ptr = WordNet.Pointer("s", 123, 'v', "1234")
+        @fact WordNet.is_semantic(ptr) --> false
     end
 
     context("is semantic for all-0") do 
-        @fact is_semantic(Pointer("s", 123, 'v', "0000")) --> true
+        ptr = WordNet.Pointer("s", 123, 'v', "0000")
+        @fact WordNet.is_semantic(ptr) --> true
     end
 end

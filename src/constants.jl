@@ -1,3 +1,7 @@
+SYNSET_TYPES = @compat Dict{Char, AbstractString}(
+    'n' => "noun", 'v' => "verb", 'a' => "adj", 'r' => "adv"
+)
+
 NOUN_POINTERS = @compat Dict{AbstractString, AbstractString}(
     "-c" => "Member of this domain - TOPIC",
     "+" => "Derivationally related form",

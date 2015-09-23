@@ -64,32 +64,3 @@ end
 function path_to_index_file(base_dir, pos)
     joinpath(base_dir, "dict", "index.$(SYNSET_TYPES[pos])")
 end
-
-SYNSET_TYPES = @compat Dict{Char, AbstractString}(
-    'n' => "noun", 'v' => "verb", 'a' => "adj", 'r' => "adv"
-)
-
-synsets(db::DB, lemma::Lemma) = map(lemma.synset_offsets) do offset
-    db.synsets[lemma.pos][offset]
-end
-
-antonym(db::DB, synset::Synset)  = relation(db, synset, ANTONYM)
-hypernym(db::DB, synset::Synset) = get(relation(db, synset, HYPERNYM), 1, ROOT)
-hyponym(db::DB, synset::Synset)  = relation(db, synset, HYPONYM)
-
-relation(db::DB, synset::Synset, pointer_sym) = map(
-    ptr -> db.synsets[synset.synset_type][ptr.offset],
-    filter(ptr -> ptr.sym == pointer_sym, synset.pointers)
-)
-
-function expanded_hypernym(db::DB, synset::Synset)
-    hypernyms = @compat Vector{Synset}()
-    
-    node = hypernym(db, synset)
-    while !is_root(node)
-        push!(hypernyms, node)
-        node = hypernym(db, node)
-    end
-    
-    hypernyms
-end

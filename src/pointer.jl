@@ -1,5 +1,3 @@
-export Pointer, is_semantic
-
 immutable Pointer
     sym::AbstractString
     offset::UInt32

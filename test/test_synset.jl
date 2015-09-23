@@ -59,8 +59,8 @@ facts("Synset") do
         @fact io_to_string(io -> show(io, ss)) --> expected
     end
 
-    context("is_root") do
-        @fact is_root(WordNet.ROOT) --> true
+    context("is_nothing") do
+        @fact WordNet.is_nothing(WordNet.∅) --> true
     end
 end
 

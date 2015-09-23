@@ -1,6 +1,4 @@
-export Synset, word_count, words, relation
-export antonym, hyponym, hypernym, hypernyms, expanded_hypernym
-export is_root
+export Synset, word_count, words
 
 immutable Synset
     offset::Int
@@ -12,7 +10,7 @@ immutable Synset
     gloss::AbstractString
 end
 
-const ROOT = @compat Synset(
+const ∅ = @compat Synset(
     -1, 
     -1, 
     Dict{AbstractString, Int}(),
@@ -22,7 +20,7 @@ const ROOT = @compat Synset(
     ""
 )
 
-is_root(synset::Synset) = synset.offset == -1
+is_nothing(synset::Synset) = synset.offset == -1
 
 parse_int_hex(s) = parse(Int, string("0x", s))
 
