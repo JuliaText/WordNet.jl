@@ -83,7 +83,7 @@ relation(db::DB, synset::Synset, pointer_sym) = map(
 )
 
 function expanded_hypernym(db::DB, synset::Synset)
-    hypernyms = Vector{Synset}()
+    hypernyms = @compat Vector{Synset}()
     
     node = hypernym(db, synset)
     while !is_root(node)
