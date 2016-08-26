@@ -8,5 +8,6 @@ include("constants.jl")
 include("synset.jl")
 include("db.jl")
 include("operations.jl")
+include("sensekeys.jl")
 
 end

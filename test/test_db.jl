@@ -1,7 +1,8 @@
 facts("DB") do
     const mock_db = DB(
         Dict{Char, Dict{AbstractString, Lemma}}(),
-        Dict{Char, Dict{Int, Synset}}()
+        Dict{Char, Dict{Int, Synset}}(),
+		Dict{Tuple{Int,AbstractString}, AbstractString}()
     )
 
     context("path_to_data_file") do 

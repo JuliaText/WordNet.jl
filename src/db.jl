@@ -3,15 +3,18 @@ export DB
 immutable DB
     lemmas::Dict{Char, Dict{AbstractString, Lemma}}
     synsets::Dict{Char, Dict{Int, Synset}}
+	sensekeys::Dict{Tuple{Int,AbstractString}, AbstractString}
 end
 
 function DB(base_dir::AbstractString)
-    DB(load_lemmas(base_dir), load_synsets(base_dir))
+    DB(load_lemmas(base_dir),
+	   load_synsets(base_dir),
+	   load_sensekeys(base_dir))
 end
 
 Base.show(io::IO, db::DB) = print(io, "WordNet.DB")
 
-function Base.getindex(db::DB, pos::Char, word::AbstractString) 
+function Base.getindex(db::DB, pos::Char, word::AbstractString)
     db.lemmas[pos][lowercase(word)]
 end
 
@@ -56,6 +59,24 @@ function load_synsets(base_dir)
     
     synsets
 end
+
+
+function load_sensekeys(basedir)
+    path=joinpath(basedir, "dict","index.sense")
+    sensekeys = Dict{Tuple{Int64,AbstractString},AbstractString}()
+    
+    for line in eachline(path)
+        full_key, offset_str, sense_num_str, tagcount_str = split(line)
+        lemma_name = first(split(full_key,'%'))
+        sense_offset = parse(Int64, offset_str)
+        index = (sense_offset,lemma_name)
+        @assert(!haskey(sensekeys, index))
+        sensekeys[index] = full_key
+    end
+    
+    sensekeys
+end
+
 
 function path_to_data_file(base_dir, pos)
     joinpath(base_dir, "dict", "data.$(SYNSET_TYPES[pos])")
