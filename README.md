@@ -53,12 +53,12 @@ expanded_hypernyms(db, synsets(db, db['n', "DOG"])[1])
 > (n) entity (that which is perceived or known or inferred to have its own distinct existence (living or nonliving))
 
 ```julia
-sensekey(db,synsets(db,db['n',"cat"])[1], db['n',"cat"])
+sensekey(db, synsets(db, db['n', "cat"])[1], db['n', "cat"])
 ```
 > "cat%1:05:00::"
 
 ```julia
-sensekeys(db,db['n',"cat"])
+sensekeys(db, db['n', "cat"])
 ```
 >8-element Array{SubString{String},1}:
 >"cat%1:05:00::"
