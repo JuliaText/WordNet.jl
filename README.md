@@ -10,7 +10,7 @@ A Julia package for using Princeton's [WordNet](https://wordnet.princeton.edu/)Â
 
 ```juila
 using WordNet
-db = DB("/Users/generativist/Data/WordNet/")
+db = DB()
 ```
 > WordNet.DB
 
@@ -80,7 +80,7 @@ The constructor `DB` can optionally take a path to a WordNet directory, containi
 This should work for any release of WordNet.
 If you do not specify such a path, WordNet 3.0 will automatically be downloaded the first time you call `DB()`.
 It will only be downloaded once.
-
+See [DataDeps.jl's readme for more information](https://github.com/oxinabox/DataDeps.jl).
 
 > George A. Miller (1995). WordNet: A Lexical Database for English. 
 > Communications of the ACM Vol. 38, No. 11: 39-41. 
