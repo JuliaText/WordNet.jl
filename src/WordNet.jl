@@ -1,7 +1,9 @@
 module WordNet
 
 using Compat
+using DataDeps
 
+include("init.jl")
 include("pointer.jl")
 include("lemma.jl")
 include("constants.jl")

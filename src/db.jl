@@ -6,7 +6,7 @@ immutable DB
     sensekeys::Dict{Tuple{Int, AbstractString}, AbstractString}
 end
 
-function DB(base_dir::AbstractString)
+function DB(base_dir::AbstractString=datadep"WordNet 3.0")
     DB(
         load_lemmas(base_dir),
         load_synsets(base_dir),
