@@ -72,7 +72,6 @@ sensekeys(db, db['n', "cat"])
 
 
 ## Design consideration
-
 This package loads all of WordNet into memory. It's not terribly expensive, but it may not be suitable for all developers. 
 
 ## Wordnet Data
