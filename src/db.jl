@@ -87,3 +87,9 @@ end
 function path_to_index_file(base_dir, pos)
     joinpath(base_dir, "dict", "index.$(SYNSET_TYPES[pos])")
 end
+
+Base.haskey(db::DB, pos::Char) = haskey(db.lemmas, pos)
+Base.haskey(db::DB, pos::Char, word::AbstractString) = haskey(db, pos) ? haskey(db.lemmas[pos], word) : false
+
+Base.get(db::DB, pos::Char, word::AbstractString, default) = haskey(db, pos, word) ? db.lemmas[pos][word] : default
+Base.get(db::DB, word::AbstractString, pos::Char, default) = get(db, pos, word, default)
