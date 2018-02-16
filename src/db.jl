@@ -45,7 +45,7 @@ end
 function load_synsets(base_dir)
     synsets = Dict{Char, Dict{Int, Synset}}()
     
-    for pos in ['n', 'v', 'a', 'r']
+    for pos in ('n', 'v', 'a', 'r')
         d = Dict{Int, Synset}()
 
         open(path_to_data_file(base_dir, pos)) do f
