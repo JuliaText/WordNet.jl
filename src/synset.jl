@@ -1,6 +1,6 @@
 export Synset, word_count, words
 
-immutable Synset
+struct Synset
     offset::Int
     lex_filenum::Int
     word_counts::Dict{AbstractString, Int}
@@ -10,7 +10,7 @@ immutable Synset
     gloss::AbstractString
 end
 
-const ∅ = @compat Synset(
+const ∅ = Synset(
     -1, 
     -1, 
     Dict{AbstractString, Int}(),
@@ -29,24 +29,24 @@ function Synset(raw_line::AbstractString, pos::Char)
     line = split(dl_parts[1], SPACE)
     gloss = join(dl_parts[2:end], " | ")
     
-    offset = parse(Int, shift!(line))
-    lex_filenum = parse(Int, shift!(line))
-    synset_type = shift!(line)[1]
+    offset = parse(Int, popfirst!(line))
+    lex_filenum = parse(Int, popfirst!(line))
+    synset_type = popfirst!(line)[1]
 
-    n_words = parse_int_hex(shift!(line))  # hex!
+    n_words = parse_int_hex(popfirst!(line))  # hex!
     word_counts = Dict{AbstractString, Int}()
     for _ in 1:n_words
-        k = shift!(line)
-        word_counts[k] = parse_int_hex(shift!(line))
+        k = popfirst!(line)
+        word_counts[k] = parse_int_hex(popfirst!(line))
     end
 
-    n_pointers = parse(Int, shift!(line))
+    n_pointers = parse(Int, popfirst!(line))
     pointers = [
         Pointer(
-            string(shift!(line)[1]), 
-            parse(UInt, shift!(line)), 
-            shift!(line)[1], 
-            shift!(line)
+            string(popfirst!(line)[1]), 
+            parse(UInt, popfirst!(line)), 
+            popfirst!(line)[1], 
+            popfirst!(line)
         )
         for _ in 1:n_pointers
     ]

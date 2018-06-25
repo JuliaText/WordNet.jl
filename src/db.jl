@@ -1,6 +1,6 @@
 export DB
 
-immutable DB
+struct DB
     lemmas::Dict{Char, Dict{AbstractString, Lemma}}
     synsets::Dict{Char, Dict{Int, Synset}}
     sensekeys::Dict{Tuple{Int, AbstractString}, AbstractString}

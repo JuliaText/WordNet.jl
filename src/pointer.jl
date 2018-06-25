@@ -1,4 +1,4 @@
-immutable Pointer
+struct Pointer
     sym::AbstractString
     offset::UInt32
     pos::Char

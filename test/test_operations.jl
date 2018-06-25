@@ -1,5 +1,5 @@
 facts("operations") do
-    const mock_db = DB(joinpath(dirname(@__FILE__), "mock_db"))
+    mock_db = DB(joinpath(dirname(@__FILE__), "mock_db"))
 
     context("getindex") do
         @fact mock_db['n', "'hood"].word --> "'hood"

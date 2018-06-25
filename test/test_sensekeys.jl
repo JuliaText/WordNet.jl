@@ -1,5 +1,5 @@
 facts("sensekeys") do
-    const mock_db = DB(joinpath(dirname(@__FILE__), "mock_db"))
+    mock_db = DB(joinpath(dirname(@__FILE__), "mock_db"))
 
     
     lem = mock_db["section", 'n']
