@@ -1,5 +1,5 @@
 function __init__()
-    RegisterDataDep("WordNet 3.0",
+    register(DataDep("WordNet 3.0",
         """
         Dataset: WordNet 3.0
         Website: https://wordnet.princeton.edu/wordnet
@@ -16,5 +16,5 @@ function __init__()
         "http://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz",
         "658b1ba191f5f98c2e9bae3e25c186013158f30ef779f191d2a44e5d25046dc8";
         post_fetch_method = unpack
-    )
+    ))
 end
