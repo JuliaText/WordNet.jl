@@ -1,4 +1,4 @@
 julia 0.6
 Compat
 FactCheck
-DataDeps 0.2.2
+DataDeps 0.3
