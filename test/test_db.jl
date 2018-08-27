@@ -2,8 +2,9 @@ facts("DB") do
     const mock_db = DB(
         Dict{Char, Dict{AbstractString, Lemma}}(),
         Dict{Char, Dict{Int, Synset}}(),
-		Dict{Tuple{Int,AbstractString}, AbstractString}()
-    )
+		Dict{Tuple{Int,AbstractString}, AbstractString}(),
+		Dict{AbstractString, Int}()
+	)
 
     context("path_to_data_file") do 
         expected = joinpath("MockDB", "dict", "data.verb")

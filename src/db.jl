@@ -4,13 +4,15 @@ immutable DB
     lemmas::Dict{Char, Dict{AbstractString, Lemma}}
     synsets::Dict{Char, Dict{Int, Synset}}
     sensekeys::Dict{Tuple{Int, AbstractString}, AbstractString}
+	counts::Dict{AbstractString, Int}
 end
 
 function DB(base_dir::AbstractString=datadep"WordNet 3.0")
     DB(
         load_lemmas(base_dir),
         load_synsets(base_dir),
-        load_sensekeys(base_dir)
+        load_sensekeys(base_dir),
+		load_counts(base_dir)
     )
 end
 
@@ -77,6 +79,19 @@ function load_sensekeys(basedir)
     end
     
     sensekeys
+end
+
+
+function load_counts(basedir)
+    path=joinpath(basedir, "dict", "cntlist")
+    counts =Dict{AbstractString, Int}()
+    
+    for line in eachline(path)
+        tag_cnt, sense_key, sense_number = split(line)
+        counts[sense_key] = parse(Int, tag_cnt)
+    end
+
+    counts
 end
 
 

@@ -11,5 +11,6 @@ include("synset.jl")
 include("db.jl")
 include("operations.jl")
 include("sensekeys.jl")
+include("sensecounts.jl")
 
 end
