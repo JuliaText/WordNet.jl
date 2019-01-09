@@ -3,17 +3,17 @@ export Lemma
 const SPACE = ' '
 
 struct Lemma
-    word::AbstractString
+    word::String
     pos::Char
     tagsense_count::Int
     synset_offsets::Vector{Int}
     id::Int
-    pointer_syms::Vector{AbstractString}
+    pointer_syms::Vector{String}
 end
 
 function Lemma(lexicon_line, id)
     parts = split(lexicon_line, SPACE)
-    
+
     word = popfirst!(parts)
     pos = popfirst!(parts)[1]
     synset_count = parse(Int, popfirst!(parts))
@@ -24,7 +24,7 @@ function Lemma(lexicon_line, id)
 
     tagsense_count = parse(Int, popfirst!(parts))
     synset_offsets = [parse(Int, c) for c in parts[1:synset_count]]
-    
+
     Lemma(word, pos, tagsense_count, synset_offsets, id, pointer_syms)
 end
 

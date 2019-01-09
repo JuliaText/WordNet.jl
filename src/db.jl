@@ -1,9 +1,9 @@
 export DB
 
 struct DB
-    lemmas::Dict{Char, Dict{AbstractString, Lemma}}
+    lemmas::Dict{Char, Dict{String, Lemma}}
     synsets::Dict{Char, Dict{Int, Synset}}
-    sensekeys::Dict{Tuple{Int, AbstractString}, AbstractString}
+    sensekeys::Dict{Tuple{Int, String}, String}
 end
 
 function DB(base_dir::AbstractString=datadep"WordNet 3.0")
@@ -23,19 +23,19 @@ end
 Base.getindex(db::DB, word::AbstractString, pos::Char) = db[pos, word]
 
 function load_lemmas(base_dir)
-    lemmas = Dict{Char, Dict{AbstractString, Lemma}}()
+    lemmas = Dict{Char, Dict{String, Lemma}}()
 
     for pos in ['n', 'v', 'a', 'r']
-        d = Dict{AbstractString, Lemma}()
-        
+        d = Dict{String, Lemma}()
+
         open(path_to_index_file(base_dir, pos)) do f
             for (i, line) in enumerate(eachline(f))
                 i > 29 || continue  # Skip Copyright.
-                word = line[1:(search(line, ' ')-1)]
+                word = line[1:(something(findfirst(isequal(' '), line), 0)-1)]
                 d[word] = Lemma(line, i-29)
             end
         end
-        
+
         lemmas[pos] = d
     end
 
@@ -44,7 +44,7 @@ end
 
 function load_synsets(base_dir)
     synsets = Dict{Char, Dict{Int, Synset}}()
-    
+
     for pos in ('n', 'v', 'a', 'r')
         d = Dict{Int, Synset}()
 
@@ -58,15 +58,15 @@ function load_synsets(base_dir)
 
         synsets[pos] = d
     end
-    
+
     synsets
 end
 
 
 function load_sensekeys(basedir)
     path=joinpath(basedir, "dict", "index.sense")
-    sensekeys = Dict{Tuple{Int64, AbstractString}, AbstractString}()
-    
+    sensekeys = Dict{Tuple{Int64, String}, String}()
+
     for line in eachline(path)
         full_key, offset_str, sense_num_str, tagcount_str = split(line)
         lemma_name = first(split(full_key, '%'))
@@ -75,7 +75,7 @@ function load_sensekeys(basedir)
         @assert(!haskey(sensekeys, index))
         sensekeys[index] = full_key
     end
-    
+
     sensekeys
 end
 

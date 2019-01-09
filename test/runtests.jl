@@ -1,11 +1,10 @@
 using WordNet
-using Compat
-using FactCheck
+using Test
 
-function io_to_string(f::Function) 
+function io_to_string(f::Function)
     buff = IOBuffer()
     f(buff)
-    UTF8String(buff.data)
+    String(take!(buff))
 end
 
 include("test_pointer.jl")
