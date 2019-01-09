@@ -31,7 +31,7 @@ function load_lemmas(base_dir)
         open(path_to_index_file(base_dir, pos)) do f
             for (i, line) in enumerate(eachline(f))
                 i > 29 || continue  # Skip Copyright.
-                word = line[1:(something(findfirst(isequal(' '), line), 0)-1)]
+                word = line[1:(findfirst(isequal(' '), line) - 1)]
                 d[word] = Lemma(line, i-29)
             end
         end
