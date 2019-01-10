@@ -1,4 +1,2 @@
-julia 0.7-alpha
-Compat
-FactCheck
-DataDeps 0.2.2
+julia 0.7
+DataDeps 0.5

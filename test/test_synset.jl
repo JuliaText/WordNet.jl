@@ -9,7 +9,7 @@ const synset_test_line = string(
     "n 0000 ~ 13135832 n 0000 ~ 13137409 n 0000 ~ 13137672 n 0000 ~ 1313830",
     "8 n 0000 ~ 13138842 n 0000 ~ 13139055 n 0000 ~ 13139482 n 0000 ~ 13140",
     "367 n 0000 ~ 13141415 n 0000 ~ 13150378 n 0000 ~ 13150592 n 0000 | the",
-    " ripened reproductive body of a seed plant"   
+    " ripened reproductive body of a seed plant"
 )
 
 const synset_test_line_2 = string(
@@ -28,44 +28,44 @@ const synset_test_line_3 = string(
     "is marriage to Wallis Warfield Simpson created a constitutional crisis"
 )
 
-facts("Synset") do 
+@testset "Synset" begin
     ss = Synset(synset_test_line, 'n')
 
-    context("constructor") do
-        @fact ss.synset_type --> 'n'
-        @fact ss.gloss --> "the ripened reproductive body of a seed plant"
-        @fact collect(words(ss)) --> ["fruit"] 
+    @testset "constructor" begin
+        @test ss.synset_type == 'n'
+        @test ss.gloss == "the ripened reproductive body of a seed plant"
+        @test collect(words(ss)) == ["fruit"]
     end
 
-    context("parses n_words from a hex string") do
-        hex_ss = Synset(synset_test_line_2, 'n') 
-        @fact hex_ss.gloss --> "an embarrassing mistake"
+    @testset "parses n_words from a hex string" begin
+        hex_ss = Synset(synset_test_line_2, 'n')
+        @test hex_ss.gloss == "an embarrassing mistake"
     end
 
-    context("parses the lex_id as a hex string") do 
-        hex_ss = Synset(synset_test_line_3, 'n') 
+    @testset "parses the lex_id as a hex string" begin
+        hex_ss = Synset(synset_test_line_3, 'n')
     end
 
-    context("words") do 
-        @fact collect(words(ss)) --> ["fruit"] 
+    @testset "words" begin
+        @test collect(words(ss)) == ["fruit"]
     end
 
-    context("word_count") do 
-        @fact word_count(ss) --> 1
+    @testset "word_count" begin
+        @test word_count(ss) == 1
     end
 
-    context("show") do 
+    @testset "show" begin
         expected = "(n) fruit (the ripened reproductive body of a seed plant)"
-        @fact io_to_string(io -> show(io, ss)) --> expected
+        @test io_to_string(io -> show(io, ss)) == expected
     end
 
-    context("is_nothing") do
-        @fact WordNet.is_nothing(WordNet.∅) --> true
+    @testset "is_nothing" begin
+        @test WordNet.is_nothing(WordNet.∅) == true
     end
 end
 
-facts("helpers") do 
-    context("parse_int_hex") do 
-        @fact WordNet.parse_int_hex("a") --> 10
+@testset "helpers" begin
+    @testset "parse_int_hex" begin
+        @test WordNet.parse_int_hex("a") == 10
     end
 end

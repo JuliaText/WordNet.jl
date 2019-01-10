@@ -1,8 +1,8 @@
-SYNSET_TYPES = Dict{Char, AbstractString}(
+SYNSET_TYPES = Dict{Char, String}(
     'n' => "noun", 'v' => "verb", 'a' => "adj", 'r' => "adv"
 )
 
-NOUN_POINTERS = Dict{AbstractString, AbstractString}(
+NOUN_POINTERS = Dict{String, String}(
     "-c" => "Member of this domain - TOPIC",
     "+" => "Derivationally related form",
     "%p" => "Part meronym",
@@ -23,7 +23,7 @@ NOUN_POINTERS = Dict{AbstractString, AbstractString}(
     "@i" => "Instance Hypernym",
     "#m" => "Member holonym"
 )
-VERB_POINTERS = Dict{AbstractString, AbstractString}(
+VERB_POINTERS = Dict{String, String}(
     "+" => "Derivationally related form",
     "@" => "Hypernym",
     ";r" => "Domain of synset - REGION",
@@ -36,7 +36,7 @@ VERB_POINTERS = Dict{AbstractString, AbstractString}(
     "*" => "Entailment"
 )
 
-ADJECTIVE_POINTERS = Dict{AbstractString, AbstractString}(
+ADJECTIVE_POINTERS = Dict{String, String}(
     ";r" => "Domain of synset - REGION",
     "!" => "Antonym",
     "\\" => "Pertainym (pertains to noun)",
@@ -46,7 +46,7 @@ ADJECTIVE_POINTERS = Dict{AbstractString, AbstractString}(
     ";c" => "Domain of synset - TOPIC"
 )
 
-ADVERB_POINTERS = Dict{AbstractString, AbstractString}(
+ADVERB_POINTERS = Dict{String, String}(
     ";r" => "Domain of synset - REGION",
     "!" => "Antonym",
     ";u" => "Domain of synset - USAGE",

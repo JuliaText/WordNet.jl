@@ -1,6 +1,5 @@
 module WordNet
 
-using Compat
 using DataDeps
 
 include("init.jl")

@@ -1,25 +1,25 @@
-facts("operations") do
-    mock_db = DB(joinpath(dirname(@__FILE__), "mock_db"))
+@testset "operations" begin
+    mock_db = DB(joinpath(@__DIR__, "mock_db"))
 
-    context("getindex") do
-        @fact mock_db['n', "'hood"].word --> "'hood"
-        @fact mock_db["'hood", 'n'].word --> "'hood"
+    @testset "getindex" begin
+        @test mock_db['n', "'hood"].word == "'hood"
+        @test mock_db["'hood", 'n'].word == "'hood"
     end
 
-    context("synsets") do 
+    @testset "synsets" begin
         ss = synsets(mock_db, mock_db['n', "'hood"])
 
-        @fact length(ss) --> 1
-        @fact ss[1].gloss --> "(slang) a neighborhood"
+        @test length(ss) == 1
+        @test ss[1].gloss == "(slang) a neighborhood"
     end
 
-    context("expanded_hypernyms") do
+    @testset "expanded_hypernyms" begin
         ss = synsets(mock_db, mock_db['n', "'hood"])[1]
-        @fact length(expanded_hypernyms(mock_db, ss)) --> 8
+        @test length(expanded_hypernyms(mock_db, ss)) == 8
     end
 
-    context("antonyms") do 
+    @testset "antonyms" begin
         ss = synsets(mock_db, mock_db['n', "'hood"])[1]
-        @fact length(antonyms(mock_db, ss)) --> 0
+        @test length(antonyms(mock_db, ss)) == 0
     end
 end
