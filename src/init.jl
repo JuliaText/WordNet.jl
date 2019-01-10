@@ -1,6 +1,5 @@
 function __init__()
-    register(DataDep(
-        "WordNet 3.0",
+    register(DataDep("WordNet 3.0",
         """
         Dataset: WordNet 3.0
         Website: https://wordnet.princeton.edu/wordnet
