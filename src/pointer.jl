@@ -1,9 +1,9 @@
-immutable Pointer
-    sym::AbstractString
+struct Pointer
+    sym::String
     offset::UInt32
     pos::Char
-    source::AbstractString
-    target::AbstractString
+    source::String
+    target::String
 end
 
 Pointer(sym, offset, pos, source) = Pointer(

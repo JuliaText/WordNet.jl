@@ -14,7 +14,7 @@ hypernyms(db::DB, synset::Synset) = get(relation(db, synset, HYPERNYM), 1, ∅)
 hyponyms(db::DB, synset::Synset)  = relation(db, synset, HYPONYM)
 
 function expanded_hypernyms(db::DB, synset::Synset)
-    path = @compat Vector{Synset}()
+    path = Vector{Synset}()
     
     node = hypernyms(db, synset)
     while !is_nothing(node)
