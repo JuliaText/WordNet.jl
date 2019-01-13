@@ -10,9 +10,16 @@ relation(db::DB, synset::Synset, pointer_sym) = map(
 )
 
 antonyms(db::DB, synset::Synset)  = relation(db, synset, ANTONYM)
-hypernyms(db::DB, synset::Synset) = get(relation(db, synset, HYPERNYM), 1, ∅)
 hyponyms(db::DB, synset::Synset)  = relation(db, synset, HYPONYM)
 
+function hypernyms(db::DB, synset::Synset)
+    for ptr in synset.pointers
+        if ptr.sym == HYPERNYM
+            return db.synsets[synset.synset_type][ptr.offset]
+        end
+    end
+    return ∅
+end
 function expanded_hypernyms(db::DB, synset::Synset)
     path = Vector{Synset}()
     
