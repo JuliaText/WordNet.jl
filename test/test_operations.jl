@@ -22,4 +22,11 @@
         ss = synsets(mock_db, mock_db['n', "'hood"])[1]
         @test length(antonyms(mock_db, ss)) == 0
     end
+
+    @testset "similar tos" begin
+        aquatic = synsets(mock_db, mock_db['a', "aquatic"])[1]
+        marine = synsets(mock_db, mock_db['a', "marine"])[1]
+        @test WordNet.relation(mock_db, aquatic, WordNet.SIMILAR_TO) == [marine]
+        @test WordNet.relation(mock_db, marine, WordNet.SIMILAR_TO) == [aquatic]
+    end
 end
