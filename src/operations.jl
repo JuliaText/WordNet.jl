@@ -10,6 +10,8 @@ relation(db::DB, synset::Synset, pointer_sym) = map(
 )
 
 function expanded_relation(db::DB, synset::Synset, pointer_sym)
+     # Inititally include self, so as to avoid cycles,
+     # but we will delete it at the end
     all_related = Set{Synset}([synset])
     queue = relation(db, synset, pointer_sym)
 
