@@ -10,18 +10,19 @@ relation(db::DB, synset::Synset, pointer_sym) = map(
 )
 
 function expanded_relation(db::DB, synset::Synset, pointer_sym)
-    all_related = Set{Synset}()
+    all_related = Set{Synset}([synset])
     queue = relation(db, synset, pointer_sym)
 
     while !isempty(queue)
         node = pop!(queue)
+        node in all_related && continue  # done this one already
         push!(all_related, node)
-        local_relatives = setdiff(relation(db, node, pointer_sym), all_related)
-        delete!(local_relatives, synset)
-        union!(queue, local_relatives)
+
+        union!(queue, relation(db, node, pointer_sym))
     end
 
-    all_related
+    delete!(all_related, synset)
+    return all_related
 end
 
 antonyms(db::DB, synset::Synset)  = relation(db, synset, ANTONYM)
