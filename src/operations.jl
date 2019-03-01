@@ -4,10 +4,10 @@ synsets(db::DB, lemma::Lemma) = map(lemma.synset_offsets) do offset
     db.synsets[lemma.pos][offset]
 end
 
-relation(db::DB, synset::Synset, pointer_sym) = Set(map(
+relation(db::DB, synset::Synset, pointer_sym) = map(
     ptr -> db.synsets[ptr.pos][ptr.offset],
     filter(ptr -> ptr.sym == pointer_sym, synset.pointers)
-))
+)
 
 function expanded_relation(db::DB, synset::Synset, pointer_sym)
     all_related = Set{Synset}()
