@@ -23,6 +23,11 @@
         @test length(antonyms(mock_db, ss)) == 0
     end
 
+    @testset "multiple hypernyms" begin
+        ss = synsets(mock_db, mock_db['n', "lactate"])[1]
+        @test length(hypernyms(mock_db, ss)) == 2
+    end
+
     @testset "similar tos" begin
         aquatic = synsets(mock_db, mock_db['a', "aquatic"])[1]
         marine = synsets(mock_db, mock_db['a', "marine"])[1]

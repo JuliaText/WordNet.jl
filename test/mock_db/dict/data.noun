@@ -1,38 +1,41 @@
-  1 This software and database is being provided to you, the LICENSEE, by  
-  2 Princeton University under the following license.  By obtaining, using  
-  3 and/or copying this software and database, you agree that you have  
-  4 read, understood, and will comply with these terms and conditions.:  
-  5   
-  6 Permission to use, copy, modify and distribute this software and  
-  7 database and its documentation for any purpose and without fee or  
-  8 royalty is hereby granted, provided that you agree to comply with  
-  9 the following copyright notice and statements, including the disclaimer,  
-  10 and that the same appear on ALL copies of the software, database and  
-  11 documentation, including modifications that you make for internal  
-  12 use or for distribution.  
-  13   
-  14 WordNet 3.0 Copyright 2006 by Princeton University.  All rights reserved.  
-  15   
-  16 THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND PRINCETON  
-  17 UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR  
-  18 IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PRINCETON  
-  19 UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES OF MERCHANT-  
-  20 ABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE  
-  21 OF THE LICENSED SOFTWARE, DATABASE OR DOCUMENTATION WILL NOT  
-  22 INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR  
-  23 OTHER RIGHTS.  
-  24   
-  25 The name of Princeton University or Princeton may not be used in  
-  26 advertising or publicity pertaining to distribution of the software  
-  27 and/or database.  Title to copyright in this software, database and  
-  28 any associated documentation shall at all times remain with  
-  29 Princeton University and LICENSEE agrees to preserve same.  
-00001740 03 n 01 entity 0 003 ~ 00001930 n 0000 ~ 00002137 n 0000 ~ 04424418 n 0000 | that which is perceived or known or inferred to have its own distinct existence (living or nonliving)  
-00001930 03 n 01 physical_entity 0 007 @ 00001740 n 0000 ~ 00002452 n 0000 ~ 00002684 n 0000 ~ 00007347 n 0000 ~ 00020827 n 0000 ~ 00029677 n 0000 ~ 14580597 n 0000 | an entity that has physical existence  
-00002684 03 n 02 object 0 physical_object 0 039 @ 00001930 n 0000 + 00532607 v 0105 ~ 00003553 n 0000 ~ 00027167 n 0000 ~ 03009633 n 0000 ~ 03149951 n 0000 ~ 03233423 n 0000 ~ 03338648 n 0000 ~ 03532080 n 0000 ~ 03595179 n 0000 ~ 03610270 n 0000 ~ 03714721 n 0000 ~ 03892891 n 0000 ~ 04012260 n 0000 ~ 04248010 n 0000 ~ 04345288 n 0000 ~ 04486445 n 0000 ~ 07851054 n 0000 ~ 09238143 n 0000 ~ 09251689 n 0000 ~ 09267490 n 0000 ~ 09279458 n 0000 ~ 09281777 n 0000 ~ 09283193 n 0000 ~ 09287968 n 0000 ~ 09295338 n 0000 ~ 09300905 n 0000 ~ 09302031 n 0000 ~ 09308398 n 0000 ~ 09334396 n 0000 ~ 09335240 n 0000 ~ 09358550 n 0000 ~ 09368224 n 0000 ~ 09407346 n 0000 ~ 09409203 n 0000 ~ 09432990 n 0000 ~ 09468237 n 0000 ~ 09474162 n 0000 ~ 09477037 n 0000 | a tangible and visible entity; an entity that can cast a shadow; "it was full of rackets, balls and other objects"  
-00027167 03 n 01 location 0 032 @ 00002684 n 0000 #p 00028651 n 0000 + 02694933 v 0102 + 02333689 v 0101 + 02286204 v 0101 + 00413876 v 0102 ~ 08489497 n 0000 ~ 08489627 n 0000 ~ 08489765 n 0000 ~ 08489890 n 0000 ~ 08490039 n 0000 ~ 08490199 n 0000 ~ 08490402 n 0000 ~ 08500433 n 0000 ~ 08509111 n 0000 ~ 08561081 n 0000 ~ 08561230 n 0000 ~ 08561351 n 0000 ~ 08561462 n 0000 ~ 08561583 n 0000 ~ 08561714 n 0000 ~ 08561835 n 0000 ~ 08561946 n 0000 ~ 08562067 n 0000 ~ 08593262 n 0000 ~ 08620061 n 0000 ~ 08630039 n 0000 ~ 08630985 n 0000 ~ 08683383 n 0000 ~ 08795880 n 0000 ~ 09386842 n 0000 ~ 13910384 n 0000 | a point or extent in space  
-08497294 15 n 02 area 1 country 2 035 @ 08630985 n 0000 + 02640503 a 0101 ~ 08497107 n 0000 ~ 08498163 n 0000 ~ 08499357 n 0000 ~ 08517204 n 0000 ~ 08523483 n 0000 ~ 08544419 n 0000 ~ 08544593 n 0000 ~ 08551177 n 0000 ~ 08581503 n 0000 ~ 08581699 n 0000 ~ 08582065 n 0000 ~ 08611063 n 0000 ~ 08611218 n 0000 ~ 08627554 n 0000 ~ 08627665 n 0000 ~ 08628746 n 0000 ~ 08632258 n 0000 ~ 08632423 n 0000 ~ 08639586 n 0000 ~ 08639776 n 0000 ~ 08640739 n 0000 ~ 08642145 n 0000 ~ 08642331 n 0000 ~ 08643015 n 0000 ~ 08643933 n 0000 ~ 08644213 n 0000 ~ 08645963 n 0000 ~ 08648322 n 0000 ~ 08649067 n 0000 ~ 08652970 n 0000 ~ 08660817 n 0000 ~ 08683841 n 0000 ~i 08710951 n 0000 | a particular geographical region of indefinite boundary (usually serving some special purpose or distinguished by its people or culture or geography); "it was a mountainous area"; "Bible country"  
-08630985 15 n 01 region 1 023 @ 00027167 n 0000 ~ 08497294 n 0000 ~ 08502507 n 0000 ~ 08516767 n 0000 ~ 08551420 n 0000 ~ 08551628 n 0000 ~ 08551984 n 0000 ~ 08552138 n 0000 ~ 08556491 n 0000 ~i 08562454 n 0000 ~i 08562757 n 0000 ~ 08562990 n 0000 ~ 08563085 n 0000 ~ 08569777 n 0000 ~ 08574314 n 0000 ~ 08578364 n 0000 ~ 08581897 n 0000 ~ 08589140 n 0000 ~ 08631750 n 0000 ~ 08632096 n 0000 ~ 08662570 n 0000 ~i 08682575 n 0000 ~i 08747887 n 0000 | a large indefinite location on the surface of the Earth; "penguins inhabit the polar regions"  
-08641113 15 n 05 vicinity 0 locality 0 neighborhood 0 neighbourhood 0 neck_of_the_woods 0 016 @ 08648322 n 0000 + 10352299 n 0402 + 09368224 n 0402 + 10352299 n 0301 + 09368224 n 0301 + 02756346 a 0201 + 02871957 a 0101 ~ 08641744 n 0000 ~ 08641944 n 0000 ~ 08642037 n 0000 ~ 08642517 n 0000 ~ 08646787 n 0000 ~i 08933084 n 0000 ~i 08933287 n 0000 ~i 08933940 n 0000 ~i 09096498 n 0000 | a surrounding or nearby region; "the plane crashed in the vicinity of Asheville"; "it is a rugged locality"; "he always blames someone else in the immediate neighborhood"; "I will drop in on you the next time I am in this neck of the woods"  
-08641944 15 n 01 'hood 0 002 @ 08641113 n 0000 ;u 07157273 n 0000 | (slang) a neighborhood  
+  1 This software and database is being provided to you, the LICENSEE, by
+  2 Princeton University under the following license.  By obtaining, using
+  3 and/or copying this software and database, you agree that you have
+  4 read, understood, and will comply with these terms and conditions.:
+  5
+  6 Permission to use, copy, modify and distribute this software and
+  7 database and its documentation for any purpose and without fee or
+  8 royalty is hereby granted, provided that you agree to comply with
+  9 the following copyright notice and statements, including the disclaimer,
+  10 and that the same appear on ALL copies of the software, database and
+  11 documentation, including modifications that you make for internal
+  12 use or for distribution.
+  13
+  14 WordNet 3.0 Copyright 2006 by Princeton University.  All rights reserved.
+  15
+  16 THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND PRINCETON
+  17 UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+  18 IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PRINCETON
+  19 UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES OF MERCHANT-
+  20 ABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE
+  21 OF THE LICENSED SOFTWARE, DATABASE OR DOCUMENTATION WILL NOT
+  22 INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR
+  23 OTHER RIGHTS.
+  24
+  25 The name of Princeton University or Princeton may not be used in
+  26 advertising or publicity pertaining to distribution of the software
+  27 and/or database.  Title to copyright in this software, database and
+  28 any associated documentation shall at all times remain with
+  29 Princeton University and LICENSEE agrees to preserve same.
+00001740 03 n 01 entity 0 003 ~ 00001930 n 0000 ~ 00002137 n 0000 ~ 04424418 n 0000 | that which is perceived or known or inferred to have its own distinct existence (living or nonliving)
+00001930 03 n 01 physical_entity 0 007 @ 00001740 n 0000 ~ 00002452 n 0000 ~ 00002684 n 0000 ~ 00007347 n 0000 ~ 00020827 n 0000 ~ 00029677 n 0000 ~ 14580597 n 0000 | an entity that has physical existence
+00002684 03 n 02 object 0 physical_object 0 039 @ 00001930 n 0000 + 00532607 v 0105 ~ 00003553 n 0000 ~ 00027167 n 0000 ~ 03009633 n 0000 ~ 03149951 n 0000 ~ 03233423 n 0000 ~ 03338648 n 0000 ~ 03532080 n 0000 ~ 03595179 n 0000 ~ 03610270 n 0000 ~ 03714721 n 0000 ~ 03892891 n 0000 ~ 04012260 n 0000 ~ 04248010 n 0000 ~ 04345288 n 0000 ~ 04486445 n 0000 ~ 07851054 n 0000 ~ 09238143 n 0000 ~ 09251689 n 0000 ~ 09267490 n 0000 ~ 09279458 n 0000 ~ 09281777 n 0000 ~ 09283193 n 0000 ~ 09287968 n 0000 ~ 09295338 n 0000 ~ 09300905 n 0000 ~ 09302031 n 0000 ~ 09308398 n 0000 ~ 09334396 n 0000 ~ 09335240 n 0000 ~ 09358550 n 0000 ~ 09368224 n 0000 ~ 09407346 n 0000 ~ 09409203 n 0000 ~ 09432990 n 0000 ~ 09468237 n 0000 ~ 09474162 n 0000 ~ 09477037 n 0000 | a tangible and visible entity; an entity that can cast a shadow; "it was full of rackets, balls and other objects"
+00027167 03 n 01 location 0 032 @ 00002684 n 0000 #p 00028651 n 0000 + 02694933 v 0102 + 02333689 v 0101 + 02286204 v 0101 + 00413876 v 0102 ~ 08489497 n 0000 ~ 08489627 n 0000 ~ 08489765 n 0000 ~ 08489890 n 0000 ~ 08490039 n 0000 ~ 08490199 n 0000 ~ 08490402 n 0000 ~ 08500433 n 0000 ~ 08509111 n 0000 ~ 08561081 n 0000 ~ 08561230 n 0000 ~ 08561351 n 0000 ~ 08561462 n 0000 ~ 08561583 n 0000 ~ 08561714 n 0000 ~ 08561835 n 0000 ~ 08561946 n 0000 ~ 08562067 n 0000 ~ 08593262 n 0000 ~ 08620061 n 0000 ~ 08630039 n 0000 ~ 08630985 n 0000 ~ 08683383 n 0000 ~ 08795880 n 0000 ~ 09386842 n 0000 ~ 13910384 n 0000 | a point or extent in space
+08497294 15 n 02 area 1 country 2 035 @ 08630985 n 0000 + 02640503 a 0101 ~ 08497107 n 0000 ~ 08498163 n 0000 ~ 08499357 n 0000 ~ 08517204 n 0000 ~ 08523483 n 0000 ~ 08544419 n 0000 ~ 08544593 n 0000 ~ 08551177 n 0000 ~ 08581503 n 0000 ~ 08581699 n 0000 ~ 08582065 n 0000 ~ 08611063 n 0000 ~ 08611218 n 0000 ~ 08627554 n 0000 ~ 08627665 n 0000 ~ 08628746 n 0000 ~ 08632258 n 0000 ~ 08632423 n 0000 ~ 08639586 n 0000 ~ 08639776 n 0000 ~ 08640739 n 0000 ~ 08642145 n 0000 ~ 08642331 n 0000 ~ 08643015 n 0000 ~ 08643933 n 0000 ~ 08644213 n 0000 ~ 08645963 n 0000 ~ 08648322 n 0000 ~ 08649067 n 0000 ~ 08652970 n 0000 ~ 08660817 n 0000 ~ 08683841 n 0000 ~i 08710951 n 0000 | a particular geographical region of indefinite boundary (usually serving some special purpose or distinguished by its people or culture or geography); "it was a mountainous area"; "Bible country"
+08630985 15 n 01 region 1 023 @ 00027167 n 0000 ~ 08497294 n 0000 ~ 08502507 n 0000 ~ 08516767 n 0000 ~ 08551420 n 0000 ~ 08551628 n 0000 ~ 08551984 n 0000 ~ 08552138 n 0000 ~ 08556491 n 0000 ~i 08562454 n 0000 ~i 08562757 n 0000 ~ 08562990 n 0000 ~ 08563085 n 0000 ~ 08569777 n 0000 ~ 08574314 n 0000 ~ 08578364 n 0000 ~ 08581897 n 0000 ~ 08589140 n 0000 ~ 08631750 n 0000 ~ 08632096 n 0000 ~ 08662570 n 0000 ~i 08682575 n 0000 ~i 08747887 n 0000 | a large indefinite location on the surface of the Earth; "penguins inhabit the polar regions"
+08641113 15 n 05 vicinity 0 locality 0 neighborhood 0 neighbourhood 0 neck_of_the_woods 0 016 @ 08648322 n 0000 + 10352299 n 0402 + 09368224 n 0402 + 10352299 n 0301 + 09368224 n 0301 + 02756346 a 0201 + 02871957 a 0101 ~ 08641744 n 0000 ~ 08641944 n 0000 ~ 08642037 n 0000 ~ 08642517 n 0000 ~ 08646787 n 0000 ~i 08933084 n 0000 ~i 08933287 n 0000 ~i 08933940 n 0000 ~i 09096498 n 0000 | a surrounding or nearby region; "the plane crashed in the vicinity of Asheville"; "it is a rugged locality"; "he always blames someone else in the immediate neighborhood"; "I will drop in on you the next time I am in this neck of the woods"
+08641944 15 n 01 'hood 0 002 @ 08641113 n 0000 ;u 07157273 n 0000 | (slang) a neighborhood
 08648322 15 n 01 section 1 005 @ 08497294 n 0000 + 01563005 v 0102 ~ 08539276 n 0000 ~ 08641113 n 0000 ~i 08724972 n 0000 | a distinct region or subdivision of a territorial or political area or community or group of people; "no section of the nation is more ardent than the South"; "there are three synagogues in the Jewish section"
+14679780 27 n 01 lactate 0 002 @ 15010703 n 0000 @ 14850483 n 0000 | a salt or ester of lactic acid
+15010703 27 n 01 salt 0 064 @ 14818238 n 0000 + 01073822 a 0101 ~ 14599806 n 0000 ~ 14604184 n 0000 ~ 14610261 n 0000 ~ 14610703 n 0000 ~ 14611279 n 0000 ~ 14614245 n 0000 ~ 14615724 n 0000 ~ 14616410 n 0000 ~ 14679780 n 0000 ~ 14684607 n 0000 ~ 14712036 n 0000 ~ 14744589 n 0000 ~ 14775067 n 0000 ~ 14783588 n 0000 ~ 14784198 n 0000 ~ 14789504 n 0000 ~ 14790259 n 0000 ~ 14792281 n 0000 ~ 14798450 n 0000 ~ 14798709 n 0000 ~ 14811826 n 0000 ~ 14826767 n 0000 ~ 14861566 n 0000 ~ 14861887 n 0000 ~ 14862192 n 0000 ~ 14866043 n 0000 ~ 14866605 n 0000 ~ 14871883 n 0000 ~ 14872325 n 0000 ~ 14884581 n 0000 ~ 14904359 n 0000 ~ 14923872 n 0000 ~ 14937225 n 0000 ~ 14937521 n 0000 ~ 14947445 n 0000 ~ 14955246 n 0000 ~ 14955559 n 0000 ~ 14970645 n 0000 ~ 14970920 n 0000 ~ 14979410 n 0000 ~ 14982265 n 0000 ~ 14994726 n 0000 ~ 14998421 n 0000 ~ 15009843 n 0000 ~ 15011987 n 0000 ~ 15012999 n 0000 ~ 15013139 n 0000 ~ 15013269 n 0000 ~ 15013450 n 0000 ~ 15013764 n 0000 ~ 15013875 n 0000 ~ 15016726 n 0000 ~ 15040033 n 0000 ~ 15044844 n 0000 ~ 15045030 n 0000 ~ 15045216 n 0000 ~ 15063493 n 0000 ~ 15070098 n 0000 ~ 15081957 n 0000 ~ 15085836 n 0000 ~ 15086811 n 0000 ~ 15112828 n 0000 | a compound formed by replacing hydrogen in an acid by a metal (or a radical that acts like a metal)  
+14850483 27 n 01 ester 0 013 @ 14727670 n 0000 + 00506225 v 0101 ~ 14604184 n 0000 ~ 14679780 n 0000 ~ 14772594 n 0000 ~ 14794823 n 0000 ~ 14827871 n 0000 ~ 14850948 n 0000 ~ 14887026 n 0000 ~ 14946251 n 0000 ~ 14964590 n 0000 ~ 14993559 n 0000 ~ 15084277 n 0000 | formed by reaction between an acid and an alcohol with elimination of water
