@@ -1,0 +1,17 @@
+name = "WordNet"
+uuid = "183c3083-7300-49a2-bdc9-6d3e0b8f145b"
+authors = ["Contributors..."]
+version = "0.2.3"
+
+[compat]
+DataDeps = "0.7"
+julia = "1"
+
+[deps]
+DataDeps = "124859b0-ceae-595e-8997-d05f6a7a8dfe"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
